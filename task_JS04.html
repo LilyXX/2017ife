@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE JavaScript Task 04</title>
+    <style>
+    #num_list{
+        font-size: 0;
+    }
+    #num_list li{
+        background:red;
+        height: 40px;
+        width: 40px;
+        margin: 10px 10px;
+        display: inline-block;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    <input type="text" name="putIn" id="putIn">
+   
+    <button id="btnIn_left">左侧入</button>
+    <button id="btnIn_right">右侧入</button>
+    &nbsp;&nbsp;&nbsp;
+    <button id="btnOut_left">左侧出</button>
+    <button id="btnOut_right">右侧出</button>
+
+    <ul id="num_list">
+        <li>10</li>
+        <li>3</li>
+        <li>7</li>
+        <li>12</li>
+        <li>11</li>
+        <li>30</li>
+    </ul>
+
+    <script>
+        var btnIn_left = document.getElementById('btnIn_left');
+        var btnIn_right = document.getElementById('btnIn_right');
+        var btnOut_left = document.getElementById('btnOut_left');
+        var btnOut_right = document.getElementById('btnOut_right');
+
+        var putIn = document.getElementById('putIn');
+        var num_list =document.getElementById('num_list');
+
+        btnIn_left.onclick = function(){
+            var newLi = document.createElement('li');
+            newLi.innerHTML =putIn.value;
+            num_list.insertBefore(newLi,num_list.firstChild);
+        }
+        btnIn_right.onclick = function(){
+            var newLi = document.createElement('li');
+            newLi.innerHTML =putIn.value;
+            num_list.appendChild(newLi);
+        }
+
+        btnOut_left.onclick = function(){
+            if(num_list.getElementsByTagName('li').length > 0){
+                alert(num_list.firstElementChild.innerText);
+                num_list.removeChild(num_list.firstElementChild);
+        }
+    }
+        btnOut_right.onclick = function(){
+            if(num_list.getElementsByTagName('li').length > 0){
+                alert(num_list.lastElementChild.innerText);
+                num_list.removeChild(num_list.lastElementChild);
+            }
+        }
+
+    </script>
+</body>
+</html>
