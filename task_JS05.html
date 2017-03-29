@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE JavaScript Task 05</title>
+    <style>
+    #dataList{
+        font-size: 0;
+        height: 120px;
+        /*position: relative;*/
+    }
+    #dataList li{
+        background: red;
+        display: inline-block;
+        font-size: 10px;
+        height: 20px;
+        list-style: none;
+        margin: 1px 1px;
+        /*position: relative;
+        bottom: 0;*/
+        width: 20px;
+    }
+    </style>
+</head>
+<body>
+    <input type="number" id="putIn" min="10" max="100">
+    <button id="btn">提交</button>
+
+    <ul id="dataList">
+        <li>20</li>
+        <li>40</li>
+    </ul>
+
+    <script>
+        var putIn = document.getElementById('putIn');
+        var btn = document.getElementById('btn');
+
+        btn.onclick = function(){
+            if(document.getElementsByTagName('li').length<=6){
+            var new_li = document.createElement('li');
+            new_li.innerHTML = putIn.value;
+
+            var dataList = document.getElementById('dataList');
+            dataList.appendChild(new_li);
+            var li = document.getElementsByTagName('li');
+                    for(var i = 0; i < li.length; i++){
+                        li[i].style.height = li[i].innerText + 'px';
+                    }
+            }else{
+                 alert('too much');
+            }
+        }
+
+    </script>
+</body>
+</html>
